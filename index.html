@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choose a Design — Manisha Enterprises</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:#f3f4f8;color:#111827;padding:48px 18px}
+  .wrap{max-width:1100px;margin:0 auto}
+  h1{font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.02em}
+  p.lead{color:#6b7280;margin:.5rem 0 2rem;max-width:640px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:#fff;border-radius:20px;overflow:hidden;border:1px solid #e5e7eb;display:flex;flex-direction:column;transition:.2s;color:inherit;text-decoration:none}
+  .card:hover{transform:translateY(-4px);box-shadow:0 24px 40px -20px rgba(0,0,0,.3)}
+  .prev{height:170px;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
+  .prev b{font-size:1.4rem;line-height:1.15}
+  .prev .dots{display:flex;gap:6px}
+  .prev .dots i{height:10px;border-radius:5px;display:block}
+  .o1{background:linear-gradient(135deg,#f4f7fd,#dbe6ff);color:#0f172a}
+  .o1 b span{color:#1146d6}
+  .o2{background:radial-gradient(circle at 20% 20%,rgba(0,224,164,.25),transparent 60%),#07090d;color:#e8edf5}
+  .o2 b span{color:#00e0a4}
+  .o3{background:#fff7ef;color:#1d1a16}
+  .o3 b span{color:#ff6a1a}
+  .body{padding:20px;flex:1;display:flex;flex-direction:column;gap:10px}
+  .body h2{font-size:1.15rem}
+  .body p{color:#6b7280;font-size:.92rem}
+  .body ul{padding-left:18px;color:#374151;font-size:.9rem;display:grid;gap:4px}
+  .open{margin-top:auto;font-weight:800;color:#1146d6}
+  .note{margin-top:32px;background:#fff;border:1px dashed #cbd5e1;border-radius:16px;padding:20px;color:#374151;font-size:.92rem}
+  code{background:#eef2ff;padding:.1rem .4rem;border-radius:6px}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body><div class="wrap">
+  <h1>Manisha Enterprises — 3 website designs</h1>
+  <p class="lead">Open each option and try it on your phone and computer. All three use the same content and work the same way: call, WhatsApp, email, map and enquiry form on every screen.</p>
+  <div class="grid">
+    <a class="card" href="option-1/index.html">
+      <div class="prev o1"><div class="dots"><i style="width:40px;background:#1146d6"></i><i style="width:20px;background:#93b1ff"></i></div><b>Protect your home with <span>reliable CCTV</span></b></div>
+      <div class="body"><h2>Option 1 · Professional Blue</h2><p>Clean, corporate and trustworthy. Good for winning schools, societies and offices.</p>
+        <ul><li>Quote form right in the first screen</li><li>5-step “how it works” timeline</li><li>Contact cards + Google Map</li><li>Floating WhatsApp, mobile call bar</li></ul>
+        <span class="open">Open option 1 →</span></div>
+    </a>
+    <a class="card" href="option-2/index.html">
+      <div class="prev o2"><div class="dots"><i style="width:10px;background:#ff4d5e"></i><i style="width:40px;background:#00e0a4"></i></div><b>Eyes on what matters, <span>24/7.</span></b></div>
+      <div class="body"><h2>Option 2 · Security Control Room</h2><p>Dark, modern, high-tech look with a live camera-wall effect. Stands out from competitors.</p>
+        <ul><li>Interactive camera planner with bar graph</li><li>Sends the planned setup to WhatsApp</li><li>Running info ticker, review slider</li><li>Bottom dock: Call / WhatsApp / Email / Map</li></ul>
+        <span class="open">Open option 2 →</span></div>
+    </a>
+    <a class="card" href="option-3/index.html">
+      <div class="prev o3"><div class="dots"><i style="width:40px;background:#ff6a1a"></i><i style="width:20px;background:#16a34a"></i></div><b>Your safety, <span>one tap</span> away.</b></div>
+      <div class="body"><h2>Option 3 · Friendly Local (Mobile-first)</h2><p>Warm, app-like and very simple. Best for home owners and shopkeepers on mobile.</p>
+        <ul><li>English / हिंदी switch</li><li>Big one-tap action tiles</li><li>3-step “Book site visit” sheet</li><li>“Open now” badge, FAQ, copy buttons</li></ul>
+        <span class="open">Open option 3 →</span></div>
+    </a>
+  </div>
+  <!-- <div class="note"><b>How to update content:</b> phone number, email, services, reviews and hours live in one file, <code>shared/site-data.js</code>. Edit it once and all three designs change.</div> -->
+</div></body>
+</html>

@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manisha Enterprises — Security Systems</title>
+<meta name="description" content="CCTV installation and security consultation in Vichumbe, Panvel. Plan your cameras online and get a quote on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="../shared/site-data.js"></script>
+<style>
+  :root{
+    --bg:#07090d; --panel:#0e131b; --panel2:#131a25; --line:#1e2836; --ink:#e8edf5; --muted:#8b97aa;
+    --acc:#00e0a4; --acc2:#ffb020; --red:#ff4d5e; --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Space Grotesk",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  svg{width:1.15em;height:1.15em;flex:none}
+  .mono{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  section{padding:90px 0}
+  .kicker{font-family:"JetBrains Mono",monospace;color:var(--acc);font-size:.8rem;letter-spacing:.08em}
+  .kicker::before{content:"// "}
+  h2{font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.15;margin:.5rem 0 1rem;letter-spacing:-.02em}
+  .lead{color:var(--muted);max-width:600px}
+  .btn{display:inline-flex;align-items:center;gap:.55rem;padding:.85rem 1.3rem;border-radius:10px;font:inherit;font-weight:600;border:1px solid transparent;cursor:pointer;transition:.2s}
+  .btn-acc{background:var(--acc);color:#04140e}
+  .btn-acc:hover{box-shadow:0 0 0 4px rgba(0,224,164,.2)}
+  .btn-line{border-color:var(--line);background:var(--panel)}
+  .btn-line:hover{border-color:var(--acc);color:var(--acc)}
+
+  header{position:fixed;inset:0 0 auto;z-index:50;transition:.3s}
+  header.scrolled{background:rgba(7,9,13,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:14px}
+  .logo{font-weight:700;display:flex;align-items:center;gap:10px;letter-spacing:.02em}
+  .logo i{width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red);animation:blink 1.4s infinite}
+  @keyframes blink{50%{opacity:.25}}
+  nav{display:flex;gap:28px;color:var(--muted);font-size:.95rem}
+  nav a:hover{color:var(--acc)}
+  .hcall{display:flex;align-items:center;gap:10px}
+  .hcall .num{display:flex;flex-direction:column;line-height:1.2;text-align:right}
+  .hcall small{color:var(--muted);font-size:.72rem}
+  @media(max-width:900px){nav,.hcall .num{display:none}}
+
+  /* hero */
+  .hero{min-height:min(100vh,860px);display:flex;align-items:center;padding:110px 0 60px;background:
+     radial-gradient(800px 400px at 15% 20%,rgba(0,224,164,.10),transparent 60%),
+     radial-gradient(600px 400px at 90% 80%,rgba(255,176,32,.07),transparent 60%)}
+  .hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  .hero h1{font-size:clamp(2.3rem,5.4vw,4rem);line-height:1.02;letter-spacing:-.035em;margin:1rem 0}
+  .hero h1 span{color:var(--acc)}
+  .hero p{color:var(--muted);font-size:1.1rem;max-width:500px}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+  .live{display:inline-flex;align-items:center;gap:8px;padding:.35rem .8rem;border:1px solid var(--line);border-radius:999px;font-size:.8rem;color:var(--muted);background:var(--panel)}
+  .live i{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc)}
+  /* fake monitoring wall */
+  .wall{display:grid;grid-template-columns:1fr 1fr;gap:10px;background:var(--panel);padding:10px;border-radius:18px;border:1px solid var(--line);box-shadow:0 40px 80px -30px rgba(0,224,164,.25)}
+  .feed{aspect-ratio:16/10;border-radius:10px;position:relative;overflow:hidden;background:linear-gradient(160deg,#1b2533,#0b1018)}
+  .feed::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px)}
+  .feed::after{content:"";position:absolute;left:0;right:0;height:30%;background:linear-gradient(180deg,transparent,rgba(0,224,164,.08),transparent);animation:scan 4s linear infinite}
+  @keyframes scan{from{top:-30%}to{top:100%}}
+  .feed .lbl{position:absolute;left:8px;top:6px;font-size:.66rem;font-family:"JetBrains Mono",monospace;color:#cfe;display:flex;gap:6px;align-items:center;z-index:2}
+  .feed .lbl i{width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 1s infinite}
+  .feed .ts{position:absolute;right:8px;bottom:6px;font-size:.62rem;font-family:"JetBrains Mono",monospace;color:#9ab;z-index:2}
+  .feed .shape{position:absolute;inset:auto 0 0 0;height:55%;opacity:.5}
+  @media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero{min-height:auto}}
+
+  /* ticker */
+  .ticker{border-block:1px solid var(--line);background:var(--panel);overflow:hidden;white-space:nowrap;padding:14px 0}
+  .ticker div{display:inline-block;animation:tick 30s linear infinite}
+  .ticker span{margin:0 26px;color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:.85rem}
+  .ticker span b{color:var(--acc);font-weight:600}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  /* services list */
+  .svc-list{margin-top:40px;border-top:1px solid var(--line)}
+  .svc-row{display:grid;grid-template-columns:70px 1fr 1.3fr auto;gap:24px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line);transition:.25s}
+  .svc-row:hover{background:linear-gradient(90deg,rgba(0,224,164,.06),transparent);padding-left:14px}
+  .svc-row .n{font-family:"JetBrains Mono",monospace;color:var(--muted)}
+  .svc-row h3{font-size:1.3rem;display:flex;gap:12px;align-items:center}
+  .svc-row h3 svg{color:var(--acc);width:26px;height:26px}
+  .svc-row p{color:var(--muted)}
+  @media(max-width:820px){.svc-row{grid-template-columns:1fr;gap:8px}.svc-row .n{display:none}}
+
+  /* planner */
+  .planner{background:var(--panel)}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+  .card{background:var(--panel2);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+  .q{margin-bottom:22px}
+  .q > label{display:block;font-weight:600;margin-bottom:10px}
+  .opts{display:flex;flex-wrap:wrap;gap:8px}
+  .opt{padding:.5rem .95rem;border-radius:8px;border:1px solid var(--line);background:var(--bg);cursor:pointer;font:inherit;color:var(--ink);font-size:.92rem;transition:.15s}
+  .opt:hover{border-color:var(--muted)}
+  .opt.on{border-color:var(--acc);color:var(--acc);background:rgba(0,224,164,.08)}
+  .range{display:flex;align-items:center;gap:14px}
+  .range input{flex:1;accent-color:var(--acc)}
+  .range output{font-family:"JetBrains Mono",monospace;min-width:2.5ch;text-align:right;color:var(--acc);font-size:1.2rem}
+  .result h3{font-size:.85rem;color:var(--muted);font-weight:500;font-family:"JetBrains Mono",monospace}
+  .big{font-size:4rem;font-weight:700;line-height:1;color:var(--acc);margin:.3rem 0}
+  .big small{font-size:1rem;color:var(--muted);font-weight:500}
+  .bars{margin:24px 0}
+  .bar{margin-bottom:14px}
+  .bar .top{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:6px}
+  .bar .top span:last-child{font-family:"JetBrains Mono",monospace;color:var(--muted)}
+  .bar .track{height:10px;border-radius:99px;background:var(--bg);overflow:hidden}
+  .bar .fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--acc),#5cf5cb);transition:width .5s ease}
+  .bar.amber .fill{background:linear-gradient(90deg,var(--acc2),#ffd27a)}
+  .specs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px}
+  .spec{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px}
+  .spec small{color:var(--muted);font-size:.75rem;display:block}
+  .spec b{font-family:"JetBrains Mono",monospace}
+  .note{font-size:.8rem;color:var(--muted);margin-top:12px}
+  @media(max-width:900px){.pgrid{grid-template-columns:1fr}}
+
+  /* sectors */
+  .sectors{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+  .sector{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--panel);font-weight:600;display:flex;justify-content:space-between;align-items:center}
+  .sector span{font-family:"JetBrains Mono",monospace;font-size:.75rem;color:var(--acc)}
+  @media(max-width:760px){.sectors{grid-template-columns:1fr 1fr}}
+
+  /* testimonials */
+  .tslider{position:relative;margin-top:36px;min-height:220px}
+  .tq{position:absolute;inset:0;opacity:0;transition:.6s;pointer-events:none}
+  .tq.on{opacity:1;pointer-events:auto}
+  .tq p{font-size:clamp(1.4rem,3vw,2.1rem);line-height:1.3;letter-spacing:-.01em;max-width:900px}
+  .tq p::before{content:"“";color:var(--acc)}
+  .tq p::after{content:"”";color:var(--acc)}
+  .tq .who{margin-top:20px;color:var(--muted)}
+  .tq .who b{color:var(--ink)}
+  .dots{display:flex;gap:8px;margin-top:10px}
+  .dots button{width:28px;height:4px;border-radius:4px;border:0;background:var(--line);cursor:pointer}
+  .dots button.on{background:var(--acc)}
+
+  /* contact */
+  .contact{background:linear-gradient(180deg,var(--bg),#0a1410)}
+  .cwrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;margin-top:40px}
+  .clist a,.clist div{display:flex;align-items:center;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+  .clist a:hover b{color:var(--acc)}
+  .clist .ic{width:46px;height:46px;border-radius:12px;border:1px solid var(--line);display:grid;place-items:center;color:var(--acc);background:var(--panel)}
+  .clist small{display:block;color:var(--muted);font-size:.8rem}
+  .clist b{font-size:1.1rem;word-break:break-word;transition:.2s}
+  .field{margin-bottom:12px}
+  .field input,.field textarea,.field select{width:100%;font:inherit;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:.8rem .9rem}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--acc)}
+  .err{color:var(--red);font-size:.85rem;min-height:1.2em;margin-top:6px}
+  @media(max-width:900px){.cwrap{grid-template-columns:1fr}}
+
+  footer{border-top:1px solid var(--line);padding:24px 0 100px;color:var(--muted);font-size:.85rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  footer a:hover{color:var(--acc)}
+
+  .dock{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;display:flex;gap:6px;padding:6px;background:rgba(14,19,27,.92);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+  .dock a{display:flex;align-items:center;gap:8px;padding:.65rem 1rem;border-radius:10px;font-weight:600;font-size:.92rem}
+  .dock a:first-child{background:var(--acc);color:#04140e}
+  .dock a:hover:not(:first-child){background:var(--panel2)}
+  @media(max-width:420px){.dock a span{display:none}.dock a{padding:.75rem 1.1rem}}
+</style>
+</head>
+<body>
+
+<header id="hdr"><div class="wrap">
+  <a href="#" class="logo"><i></i><span data-t="name"></span></a>
+  <nav><a href="#services">Services</a><a href="#planner">Plan cameras</a><a href="#reviews">Clients</a><a href="#contact">Contact</a></nav>
+  <div class="hcall">
+    <div class="num"><small>Call · <span data-t="hoursShort"></span></small><b class="mono" data-t="phone"></b></div>
+    <a class="btn btn-acc" data-href="tel" data-i="phone">Call</a>
+  </div>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="live"><i></i> Serving <span data-t="area"></span> &amp; nearby</span>
+    <h1>Eyes on what<br>matters, <span>24/7.</span></h1>
+    <p data-t="tagline"></p>
+    <div class="hero-actions">
+      <a class="btn btn-acc" href="#planner" data-i="camera">Plan my cameras</a>
+      <a class="btn btn-line" data-href="wa" data-i="whatsapp">WhatsApp us</a>
+    </div>
+  </div>
+  <div class="wall" id="wall" aria-hidden="true"></div>
+</div></section>
+
+<div class="ticker"><div id="ticker"></div></div>
+
+<section id="services"><div class="wrap">
+  <span class="kicker">services</span>
+  <h2>What we do, end to end.</h2>
+  <p class="lead">From initial consultation to final installation — <span data-t="promise"></span></p>
+  <div class="svc-list" id="svc"></div>
+</div></section>
+
+<section class="planner" id="planner"><div class="wrap">
+  <span class="kicker">camera planner</span>
+  <h2>How many cameras do you need?</h2>
+  <p class="lead">Answer 3 quick questions. We’ll show a suggested setup and you can send it to us on WhatsApp for an exact quotation.</p>
+  <div class="pgrid">
+    <div class="card">
+      <div class="q"><label>1. Type of property</label><div class="opts" id="p-prop"></div></div>
+      <div class="q"><label>2. Size of the place</label>
+        <div class="range"><input type="range" id="p-size" min="1" max="10" value="3"><output id="p-size-o"></output></div>
+        <small style="color:var(--muted)" id="p-size-l"></small>
+      </div>
+      <div class="q"><label>3. Which areas to cover?</label><div class="opts" id="p-areas"></div></div>
+      <div class="q" style="margin:0"><label>4. Recording backup</label><div class="opts" id="p-days"></div></div>
+    </div>
+    <div class="card result">
+      <h3>SUGGESTED SETUP</h3>
+      <div class="big"><span id="r-total">0</span> <small>cameras</small></div>
+      <div class="bars" id="r-bars"></div>
+      <div class="specs">
+        <div class="spec"><small>Recorder</small><b id="r-dvr"></b></div>
+        <div class="spec"><small>Storage</small><b id="r-hdd"></b></div>
+        <div class="spec"><small>Backup</small><b id="r-days"></b></div>
+      </div>
+      <a class="btn btn-acc" id="r-send" target="_blank" rel="noopener" style="width:100%;justify-content:center" data-i="whatsapp">Get exact price on WhatsApp</a>
+      <p class="note">This is an estimate only. Final camera points are confirmed after our site visit.</p>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="kicker">who we secure</span>
+  <h2>Built for every kind of space.</h2>
+  <div class="sectors" id="sectors"></div>
+</div></section>
+
+<section id="reviews" style="background:var(--panel)"><div class="wrap">
+  <span class="kicker">client voice</span>
+  <div class="tslider" id="tslider"></div>
+  <div class="dots" id="dots"></div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <span class="kicker">contact</span>
+  <h2>Let’s secure your premises.</h2>
+  <div class="cwrap">
+    <div class="clist" id="clist"></div>
+    <form class="card" id="enq" novalidate>
+      <h3 style="margin-bottom:14px">Request a callback</h3>
+      <div class="field"><input id="f-name" placeholder="Your name"></div>
+      <div class="field"><input id="f-phone" type="tel" placeholder="Mobile number"></div>
+      <div class="field"><select id="f-type"></select></div>
+      <div class="field"><textarea id="f-msg" rows="3" placeholder="Your area & requirement (optional)"></textarea></div>
+      <button class="btn btn-acc" style="width:100%;justify-content:center" data-i="whatsapp">Send request</button>
+      <div class="err" id="f-err" role="alert"></div>
+    </form>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© <span id="yr"></span> <span data-t="name"></span> · <span data-t="area"></span>, <span data-t="state"></span></span>
+  <a href="../index.html">← Back to design options</a>
+</div></footer>
+
+<div class="dock">
+  <a data-href="tel" data-i="phone"><span>Call</span></a>
+  <a data-href="wa" data-i="whatsapp"><span>WhatsApp</span></a>
+  <a data-href="mail" data-i="mail"><span>Email</span></a>
+  <a data-href="map" data-i="pin"><span>Map</span></a>
+</div>
+
+<script>
+(function(){
+  const S = SITE, H = SITE_HELPERS, C = S.contact;
+  const $ = q => document.querySelector(q), $$ = q => [...document.querySelectorAll(q)];
+  const ext = el => { el.target = "_blank"; el.rel = "noopener"; };
+  const text = {name:S.name, tagline:S.tagline, promise:S.promise, phone:C.phone, area:C.area, state:C.state, hoursShort:"8am–10pm daily"};
+  const hrefs = {tel:H.telLink(), wa:H.waLink(), mail:H.mailLink("CCTV enquiry"), map:H.mapLink()};
+  $$("[data-t]").forEach(el => el.textContent = text[el.dataset.t]);
+  $$("[data-href]").forEach(el => { el.href = hrefs[el.dataset.href]; if (["wa","map"].includes(el.dataset.href)) ext(el); });
+  $$("[data-i]").forEach(el => el.insertAdjacentHTML("afterbegin", H.icon(el.dataset.i)));
+  $("#yr").textContent = new Date().getFullYear();
+
+  addEventListener("scroll", () => $("#hdr").classList.toggle("scrolled", scrollY > 20));
+
+  // monitoring wall with ticking clock
+  const cams = ["CAM 01 · GATE", "CAM 02 · SHOP", "CAM 03 · PARKING", "CAM 04 · LOBBY"];
+  const shapes = [
+    '<svg class="shape" viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 50V30h20V18h15v12h30V10h20v40z" fill="#2a3a4f"/></svg>',
+    '<svg class="shape" viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 50V20h100v30z" fill="#223042"/><path d="M10 50V28h18v22M40 50V28h18v22M70 50V28h18v22" fill="#2f4058"/></svg>',
+    '<svg class="shape" viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 50L30 20h40l30 30z" fill="#1f2c3c"/><rect x="38" y="30" width="24" height="10" rx="3" fill="#36506e"/></svg>',
+    '<svg class="shape" viewBox="0 0 100 50" preserveAspectRatio="none"><rect x="0" y="20" width="100" height="30" fill="#1d2939"/><rect x="42" y="14" width="16" height="36" fill="#33475f"/></svg>'
+  ];
+  $("#wall").innerHTML = cams.map((c,i) => `<div class="feed"><div class="lbl"><i></i>${c}</div>${shapes[i]}<div class="ts"></div></div>`).join("");
+  const tick = () => { const d = new Date().toLocaleString("en-IN",{hour12:false}); $$(".feed .ts").forEach(t => t.textContent = d); };
+  tick(); setInterval(tick, 1000);
+
+  const tk = [`<b>OPEN</b> ${C.hours}`, `<b>CALL</b> ${C.phone}`, `<b>AREA</b> ${C.area}, ${C.state}`, ...S.segments.map(s => `<b>FOR</b> ${s}`), `<b>RATES</b> ${S.promise}`];
+  $("#ticker").innerHTML = (tk.map(t => `<span>${t}</span>`).join("")).repeat(2);
+
+  $("#svc").innerHTML = S.services.map((s,i) => `<div class="svc-row"><span class="n">0${i+1}</span><h3>${H.icon(s.icon)}${s.title}</h3><p>${s.text}</p><a class="btn btn-line" href="${H.waLink("Hello, I want details about: " + s.title)}" target="_blank" rel="noopener">Ask →</a></div>`).join("");
+  $("#sectors").innerHTML = S.segments.map((s,i) => `<div class="sector">${s}<span>0${i+1}</span></div>`).join("");
+
+  // ---------- camera planner ----------
+  const props = {"Home / Flat":{base:1,unit:"BHK",max:5}, "Shop":{base:1,unit:"x 100 sq.ft",max:10}, "Office":{base:2,unit:"x 500 sq.ft",max:10}, "Society":{base:2,unit:"wings / buildings",max:10}, "School":{base:3,unit:"floors",max:10}, "Warehouse / Industry":{base:3,unit:"x 2,000 sq.ft",max:10}};
+  const areas = {"Entrance / Gate":1, "Inside rooms / floor":"size", "Parking":1, "Cash counter":1, "Back side / Compound":2, "Staircase / Lift":1};
+  const daysOpts = [7, 15, 30];
+  const st = {prop:"Shop", areas:new Set(["Entrance / Gate","Inside rooms / floor"]), days:15};
+
+  const optBtns = (el, list, isOn, onClick) => {
+    el.innerHTML = list.map(o => `<button type="button" class="opt">${o}</button>`).join("");
+    [...el.children].forEach((b,i) => { b.classList.toggle("on", isOn(list[i])); b.onclick = () => { onClick(list[i]); calc(); }; });
+  };
+  function render(){
+    optBtns($("#p-prop"), Object.keys(props), o => o === st.prop, o => st.prop = o);
+    optBtns($("#p-areas"), Object.keys(areas), o => st.areas.has(o), o => st.areas.has(o) ? st.areas.delete(o) : st.areas.add(o));
+    optBtns($("#p-days"), daysOpts.map(d => d + " days"), o => parseInt(o) === st.days, o => st.days = parseInt(o));
+  }
+  function calc(){
+    render();
+    const p = props[st.prop], size = +$("#p-size").value;
+    $("#p-size").max = p.max; if (size > p.max) $("#p-size").value = p.max;
+    const sz = +$("#p-size").value;
+    $("#p-size-o").value = sz; $("#p-size-l").textContent = sz + " " + p.unit;
+    const rows = [...st.areas].map(a => [a, areas[a] === "size" ? Math.max(1, Math.ceil(sz * p.base * .8)) : areas[a] * (sz > 5 ? 2 : 1)]);
+    const total = rows.reduce((t,r) => t + r[1], 0);
+    const peak = Math.max(1, ...rows.map(r => r[1]));
+    $("#r-total").textContent = total;
+    $("#r-bars").innerHTML = rows.length ? rows.map((r,i) => `<div class="bar ${i%2?"amber":""}"><div class="top"><span>${r[0]}</span><span>${r[1]} cam</span></div><div class="track"><div class="fill" style="width:${r[1]/peak*100}%"></div></div></div>`).join("") : `<p style="color:var(--muted)">Select at least one area to cover.</p>`;
+    const ch = total <= 4 ? 4 : total <= 8 ? 8 : total <= 16 ? 16 : 32;
+    const tb = Math.max(1, Math.ceil(total * st.days * 0.03));
+    $("#r-dvr").textContent = ch + " CH";
+    $("#r-hdd").textContent = (tb <= 1 ? 1 : tb <= 2 ? 2 : tb <= 4 ? 4 : 8) + " TB";
+    $("#r-days").textContent = st.days + " days";
+    const msg = `Hello ${S.name}, I used your camera planner.\n\nProperty: ${st.prop} (${sz} ${p.unit})\nAreas: ${[...st.areas].join(", ") || "-"}\nSuggested: ${total} cameras, ${ch}CH recorder, ${st.days} days backup.\n\nPlease share the best price.`;
+    $("#r-send").href = H.waLink(msg);
+  }
+  $("#p-size").addEventListener("input", calc);
+  calc();
+
+  // ---------- testimonials slider ----------
+  $("#tslider").innerHTML = S.testimonials.map((t,i) => `<div class="tq ${i?"":"on"}"><p>${t.text}</p><div class="who"><b>${t.name}</b> — ${t.place}</div></div>`).join("");
+  $("#dots").innerHTML = S.testimonials.map((_,i) => `<button aria-label="Review ${i+1}" class="${i?"":"on"}"></button>`).join("");
+  let cur = 0;
+  const go = i => { cur = i; $$(".tq").forEach((e,j) => e.classList.toggle("on", j===i)); $$("#dots button").forEach((e,j) => e.classList.toggle("on", j===i)); };
+  $$("#dots button").forEach((b,i) => b.onclick = () => go(i));
+  setInterval(() => go((cur + 1) % S.testimonials.length), 5000);
+
+  // ---------- contact ----------
+  $("#clist").innerHTML = [
+    {i:"phone", l:"Phone", v:C.phone, h:H.telLink()},
+    {i:"whatsapp", l:"WhatsApp", v:"Chat with us now", h:H.waLink(), e:1},
+    {i:"mail", l:"Email", v:C.email, h:H.mailLink("CCTV enquiry")},
+    {i:"insta", l:"Instagram", v:"@enterprises.manisha", h:C.instagram, e:1},
+    {i:"pin", l:"Location", v:C.area + ", " + C.state, h:H.mapLink(), e:1},
+    {i:"clock", l:"Hours", v:C.hours}
+  ].map(c => `<${c.h?"a":"div"} ${c.h?`href="${c.h}"`:""} ${c.e?'target="_blank" rel="noopener"':""}><span class="ic">${H.icon(c.i)}</span><span><small>${c.l}</small><b>${c.v}</b></span></${c.h?"a":"div"}>`).join("");
+  $("#f-type").innerHTML = S.enquiryTypes.map(o => `<option>${o}</option>`).join("");
+  $("#enq").addEventListener("submit", e => {
+    e.preventDefault();
+    const n = $("#f-name").value.trim(), ph = $("#f-phone").value.replace(/\D/g,"");
+    if (!n || ph.length < 10) return $("#f-err").textContent = "Please enter your name and a valid 10-digit mobile number.";
+    $("#f-err").textContent = "";
+    window.open(H.waLink(`Hello ${S.name}, please call me back.\n\nName: ${n}\nMobile: ${ph}\nNeed: ${$("#f-type").value}\nDetails: ${$("#f-msg").value.trim() || "-"}`), "_blank");
+  });
+})();
+</script>
+</body>
+</html>
